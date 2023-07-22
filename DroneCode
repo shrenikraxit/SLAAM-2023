@@ -1,0 +1,46 @@
+float dist;
+
+void setup() {
+
+void loop() {
+ dist = getDist();
+
+ if (dist < 8) {
+   lift();
+ }
+ else if (dist == 8) {
+   hover();
+ }
+ else {
+      drop();
+ }
+}
+void lift() {
+ analogWrite(14, 255);
+ analogWrite(15, 255);
+ analogWrite(16, 255);
+ analogWrite(17, 255);
+}
+void hover() {
+ analogWrite(14, 128);
+ analogWrite(15, 128);
+ analogWrite(16, 128);
+ analogWrite(17, 128);
+}
+void drop {
+ analogWrite(14, 0);
+ analogWrite(15, 0);
+ analogWrite(16, 0);
+ analogWrite(17, 0);
+}
+float getDist() {
+ digitalWrite(13, HIGH);
+ delayMicroseconds(10);
+ digitalWrite(13, LOW);
+
+ return(pulseIn(18,HIGH) / 148.0 );
+}
+
+
+
+
